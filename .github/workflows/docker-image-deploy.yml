@@ -16,6 +16,8 @@ jobs:
       - uses: docker/setup-qemu-action@master
         with:
           platforms: all
+      
+      - uses: docker/setup-buildx-action@v1
 
       - uses: crazy-max/ghaction-docker-meta@v1
         id: docker_meta
