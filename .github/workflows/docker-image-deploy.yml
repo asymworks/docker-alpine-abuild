@@ -9,6 +9,18 @@ jobs:
     strategy:
       matrix:
         arch: [ amd64, armhf, armv7, aarch64 ]
+        include:
+          - arch: amd64
+            platform: linux/amd64
+
+          - arch: armhf
+            platform: linux/arm/v6
+
+          - arch: armv7
+            platform: linux/arm/v7
+
+          - arch: aarch64
+            platform: linux/arm64
 
     steps:
       - uses: actions/checkout@v2
@@ -39,7 +51,8 @@ jobs:
           context: .
           file: Dockerfile.multiarch
           push: true
+          platforms: ${{ matrix.platform }}
           build-args: |
             ARCH=${{ matrix.arch }}
           tags: ${{ steps.docker_meta.outputs.tags }}
-          labels: ${{ steps.docker_meta.outputs.labels }}
+
