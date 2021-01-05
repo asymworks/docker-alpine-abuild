@@ -23,7 +23,7 @@ jobs:
         id: docker_meta
         with:
           images: asymworks/alpine-abuild
-          tags-semver: |
+          tag-semver: |
             ${{ matrix.arch }}-{{version}}
             ${{ matrix.arch }}-v{{major}}.{{minor}}
 
