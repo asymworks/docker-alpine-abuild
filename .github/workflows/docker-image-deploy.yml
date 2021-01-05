@@ -35,9 +35,7 @@ jobs:
         id: docker_meta
         with:
           images: asymworks/alpine-abuild
-          tag-semver: |
-            ${{ matrix.arch }}-{{version}}
-            ${{ matrix.arch }}-v{{major}}.{{minor}}
+          tag-semver: ${{ matrix.arch }}-{{version}}
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
