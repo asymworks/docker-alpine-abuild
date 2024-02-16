@@ -10,8 +10,10 @@ main() {
     export PACKAGER_PRIVKEY="/home/builder/.abuild/$RSA_PRIVATE_KEY_NAME"
   }
   ln -s /etc/apk/keys/${RSA_PRIVATE_KEY_NAME}.pub /home/builder/.abuild/${RSA_PRIVATE_KEY_NAME}.pub
-  # sudo chown -R builder:abuild /home/builder/main/package
-  sudo chown -R builder:abuild $REPODEST
+  [ -z "${ABUILD_SKIP_CHOWN+x}" ] && {
+    sudo chown -R builder:abuild /home/builder/main/package
+    sudo chown -R builder:abuild $REPODEST
+  }
 
   exec abuild "$@"
 }
