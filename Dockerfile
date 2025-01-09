@@ -1,6 +1,6 @@
 ARG ARCH=
 ARG DIST=v3.20
-FROM asymworks/multiarch-alpine:${ARCH}-${DIST}
+FROM ghcr.io/asymworks/multiarch-alpine:${ARCH}-${DIST}
 
 ARG DIST=v3.20
 
