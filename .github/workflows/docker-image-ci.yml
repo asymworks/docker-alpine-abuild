@@ -22,6 +22,6 @@ jobs:
 
       - name: Build Docker Image (${{ matrix.arch }})
         run: |
-          docker build . \
+          docker buildx build . \
             --build-arg ARCH=${{ matrix.arch }} \
             --build-arg DIST=${{ matrix.dist }}
