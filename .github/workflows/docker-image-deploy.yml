@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dist: [ v3.17, v3.18, v3.19, v3.20, edge ]
+        dist: [ v3.18, v3.19, v3.20, v3.21, edge ]
         arch: [ x86_64, armhf, armv7, aarch64 ]
 
     steps:
